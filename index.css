@@ -1,110 +1,198 @@
-body {
+/* makes sizing simpler */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
     font-family: 'Manrope', sans-serif;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
-    
+
+}
+
+/* dark mode user-agent-styles */
+
+html {
+    color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+    max-height: 100vh;
     background-color: hsl(218, 23%, 16%);
+
+
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
 }
 
 
-.container {
+main {
 
-    width: fit-content;
-    height: fit-content;
-    max-width: 550px;
-    background-color: hsl(217, 19%, 24%);
-    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
     display: flex;
-    flex-direction: column;
-    padding: 50px 50px;
-    margin: auto 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+
+}
+
+.app-container {
+    height: 315px;
+    background: #313A48;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 30px 50px 80px rgba(0, 0, 0, 0.100202);
     border-radius: 10px;
-    
 
 }
 
-.child {
+.app-wrapper {
 
+    height: 347px;
+    display: flex;
+    position: relative;
 }
 
-span {
+h1 {
 
-    color: hsl(150, 100%, 66%);
-    text-transform: uppercase;
-    font-size: .9em;
     font-weight: 800;
-    letter-spacing: 4px;
-
+    font-size: 11px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 3.45714px;
+    color: #53FFAA;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 24px;
 }
 
 p {
 
-
-    color: hsl(193, 38%, 86%);
-    font-size: 1.8em;
     font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    letter-spacing: -0.257143px;
+    color: #CEE3E9;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    /* max-width: 444px; */
+    margin: 0 auto;
 }
 
-.btn {
 
-    
-    display: flex;
-    justify-content: center;
-    margin: 0 auto -80px;
-    transition: 0.1s ease;
-    background-color: hsl(150, 100%, 66%);
-    border: 20px solid hsl(150, 100%, 66%);
+.divider {
+
+    margin: 0 auto;
+    margin-top: 24px;
+}
+
+.btn-container {
+    width: 64px;
+    height: 64px;
+    background: #53FFAA;
     border-radius: 50%;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s all;
+    margin: 0 auto;
+
+
 }
 
-.btn:hover {
+.btn-wrapper {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.btn-container:hover {
 
     cursor: pointer;
     box-shadow: 0 0 40px hsl(150, 100%, 66%);
 }
 
-
-
-#divider {
-
-    margin-bottom: 50px;
-    margin-top: 20px;
-    width: 100%;
-}
-
-#divider-mobile {
+#desktop-divider {
 
     display: none;
 }
 
-@media (max-width: 530px) {
+#mobile-divider {
+
+    display: flex;
+}
 
 
-    #divider {
+@media screen and (min-width: 572px) {
 
-        display: none;
+    .app-container {
+
+        width: 540px;
+        min-height: 332px;
+
     }
 
-    #divider-mobile {
+    .app-wrapper {
 
-        display: block;
-        margin-bottom: 50px;
+        min-height: 364px;
     }
 
-    .container {
-
-        width: 300px;
-        padding-left: 25px;
-        padding-right: 25px;
+    h1 {
+        margin-top: 48px;
+        font-weight: 800;
+        font-size: 11px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: 3.45714px;
     }
 
     p {
 
-        font-size: 1.6em;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 38px;
+        padding-left: 48px;
+        padding-right: 48px;
+
+
     }
-    
+
+    #mobile-divider {
+
+        display: none;
+    }
+
+    #desktop-divider {
+
+        display: flex;
+    }
+
+    .divider {
+
+        margin-top: 40px;
+
+    }
+
+
 }

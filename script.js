@@ -1,19 +1,17 @@
 
 
-const generate = document.getElementById("generate-btn");
-
+const generate = document.querySelector(".btn-wrapper");
 const adviceNum = document.getElementById("advice-num");
-
-const advice = document.getElementById("advice-text")
-
-
-
-
+const advice = document.getElementById("advice-quote")
+const spinner = document.querySelector('.spinner');
 generate.addEventListener("click", generateAdvice);
 
 
 
 function generateAdvice() {
+
+    advice.style.opacity = '0';
+    spinner.style.display = 'flex';
 
 
     fetch('https://api.adviceslip.com/advice')
@@ -23,8 +21,10 @@ function generateAdvice() {
     .then((data) =>
     
         {   
+            spinner.style.display = 'none';
+            advice.style.opacity = '1';
 
-            adviceNum.textContent = data.id;
+            adviceNum.textContent = ` #${data.id}`;
             advice.textContent = data.advice;
 
         }
